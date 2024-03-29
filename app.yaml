@@ -1,0 +1,9 @@
+runtime: python39
+entrypoint: gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 server:app
+
+manual_scaling:
+  instances: 1
+
+handlers:
+- url: /.*
+  script: auto
